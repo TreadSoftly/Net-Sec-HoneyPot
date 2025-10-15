@@ -1,0 +1,6 @@
+<decoder name="cowrie-json">
+  <program_name>cowrie</program_name>
+  <type>json</type>
+  <prematch>^\{.*"eventid":</prematch>
+</decoder>
+

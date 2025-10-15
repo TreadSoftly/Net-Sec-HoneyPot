@@ -1,0 +1,25 @@
+<group name="custom">
+  <!-- Cowrie interactive session started -->
+  <rule id="100001" level="8">
+    <if_json_tag>cowrie</if_json_tag>
+    <field name="eventid">cowrie.session.connect</field>
+    <description>Cowrie SSH session started from src=&lt;srcip&gt;</description>
+    <options>no_full_log</options>
+    <mitre>
+      <id>T1021.004</id>
+      <tactic>lateral-movement</tactic>
+    </mitre>
+  </rule>
+
+  <!-- pfSense DMZ egress blocked -->
+  <rule id="100010" level="10">
+    <if_sid>5501</if_sid>
+    <match>block.* from 10\.20\.</match>
+    <description>DMZ egress blocked by firewall</description>
+    <mitre>
+      <id>T1071</id>
+      <tactic>command-and-control</tactic>
+    </mitre>
+  </rule>
+</group>
+

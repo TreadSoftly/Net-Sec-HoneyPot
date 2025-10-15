@@ -1,0 +1,27 @@
+---
+name: Lint Docs
+
+on:
+  push: {}
+  pull_request: {}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Markdownlint
+        run: npx markdownlint-cli "**/*.md"
+
+      - name: Yamllint
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: .
+          config_file: .yamllint.yaml

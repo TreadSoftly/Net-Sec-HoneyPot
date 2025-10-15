@@ -1,0 +1,6 @@
+index=honeypot sourcetype=cowrie
+| stats earliest(_time) as first_seen latest(_time) as last_seen values(src_ip) as src_ip values(input) as commands by session
+| eval duration = tostring(last_seen - first_seen, "duration")
+| table session src_ip commands duration
+| sort - last_seen
+

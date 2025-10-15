@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType != 0
+| summarize Count = count() by UserPrincipalName, AppDisplayName, Location, ResultType
+| order by Count desc
+

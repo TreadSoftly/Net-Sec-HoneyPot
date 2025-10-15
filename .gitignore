@@ -1,0 +1,26 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Logs and captures
+*.log
+*.pcap
+*.pcapng
+docs/evidence/images/*
+docs/evidence/*.zip
+# Secrets/sensitive
+*.key
+*.pem
+*.pfx
+*.der
+*.cer
+*.crt
+*.kdbx
+*.json
+!.markdownlint.json
+.env
+# Terraform/Ansible (if added later)
+*.tfstate*
+.terraform/
+node_modules/
